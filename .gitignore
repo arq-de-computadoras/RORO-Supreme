@@ -1,0 +1,25 @@
+# Archivos temporales y de compilación de Quartus
+db/
+incremental_db/
+simulation/
+greybox_tmp/
+*.bak
+*.qws
+*.sld
+
+# Archivos de reportes y programación (se regeneran solos)
+*.rpt
+*.summary
+*.pin
+*.sof
+*.pof
+*.ttf
+*.jdi
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
