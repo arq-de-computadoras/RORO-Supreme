@@ -26,3 +26,16 @@ R1 → ROMa (32 bits) ┐
                     ├→ ALUMIPS → DD[31:0], ZF
 R2 → ROMina (32 bits) ┘
 OP ─────────────────────→ ALUMIPS
+```
+
+## TODOs
+*   Editar readme para hacerlo el reporte de actividad como se pide en el PDF.
+*   Modificar ROM.v para hacerlo modular.
+*   Modificar archivo RORO.v.
+*   Modificar MIPSALU.v.
+    Al modificar los archivos debe haber una justificacion para ello segun el PDF.
+*   Realizar el modulo de RORO Supreme
+*   Codificar testbench para archivos base modificados
+*   Realizar el testbench para RORO Supreme
+
+*Nota:* Si utilizas un software diferente a Quartus, puedes ignorar los archivos .qpf y .qsf
