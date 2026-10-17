@@ -30,7 +30,7 @@ OP ─────────────────────→ ALUMIPS
 
 ## TODOs
 *   Editar readme para hacerlo el reporte de actividad como se pide en el PDF.
-*   Modificar ROM.v para hacerlo modular.
+*   ~Modificar ROM.v para hacerlo modular.~
 *   Modificar archivo RORO.v.
 *   Modificar MIPSALU.v.
     Al modificar los archivos debe haber una justificacion para ello segun el PDF.
