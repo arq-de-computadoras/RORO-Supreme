@@ -6,7 +6,7 @@ module ROM_Instrucciones (
     reg [11:0] memoria [0:15]; // 16 posiciones de 12 bits
 
     initial begin
-        $readmemb("instrucciones.txt", memoria);
+        $readmemb("C:/Users/adrie/Documents/Programacion/Verilog/RORO-Supreme/instrucciones.txt", memoria);
     end
 
     always @(*) begin

@@ -13,6 +13,8 @@ initial
 begin
 	// CAMBIO 3: Carga desde archivo.
 	$readmemb(DATA_FILE, srom); 
+	
+	$display("Cargando archivo %s en ROM. Posición 0 = %h", DATA_FILE, srom[0]);
 end
 
 endmodule

@@ -29,7 +29,7 @@ RORO Roro(
 // cargarian el archivo por defecto de ROM.v (initData.txt). Para no
 // modificar RORO.v, desde aqui se le indica a cada ROM interna que
 // archivo debe cargar, usando defparam sobre el parametro DATA_FILE.
-defparam Roro.Roma.DATA_FILE   = "ROMa_init.txt";
-defparam Roro.Romina.DATA_FILE = "ROMina_init.txt";
+defparam Roro.Roma.DATA_FILE   = "C:/Users/adrie/Documents/Programacion/Verilog/RORO-Supreme/ROMa_init.txt";
+defparam Roro.Romina.DATA_FILE = "C:/Users/adrie/Documents/Programacion/Verilog/RORO-Supreme/ROMina_init.txt";
 
 endmodule

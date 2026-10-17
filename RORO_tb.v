@@ -14,13 +14,13 @@ module RORO_tb;
     wire ZF;
 
     // 3. Instanciar ROMa
-    ROM #(.DATA_FILE("ROMa_init.txt")) rom_a (
+    ROM #(.DATA_FILE("C:/Users/adrie/Documents/Programacion/Verilog/RORO-Supreme/ROMa_init.txt")) rom_a (
         .DirL({2'b00, R1}), // Extensión a 6 bits
         .Data(data_a)
     );
 
     // 4. Instanciar ROMina
-    ROM #(.DATA_FILE("ROMina_init.txt")) rom_ina (
+    ROM #(.DATA_FILE("C:/Users/adrie/Documents/Programacion/Verilog/RORO-Supreme/ROMina_init.txt")) rom_ina (
         .DirL({2'b00, R2}),
         .Data(data_b)
     );
@@ -30,7 +30,7 @@ module RORO_tb;
         .A(data_a),
         .B(data_b),
         .ALUctl(OP),
-        .ALUout(DD),      // Si tu ALU usa otro nombre como "Result", cámbialo aquí
+        .ALUOut(DD),
         .Zero(ZF)
     );
 

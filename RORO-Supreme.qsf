@@ -19,7 +19,7 @@
 #
 # Quartus Prime
 # Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-# Date created = 17:08:27  October 16, 2026
+# Date created = 22:40:55  October 16, 2026
 #
 # -------------------------------------------------------------------------- #
 #
@@ -39,22 +39,35 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY "RORO-Supreme"
+set_global_assignment -name TOP_LEVEL_ENTITY RORO_Supreme
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:08:27  OCTOBER 16, 2026"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:40:55  OCTOBER 16, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
-set_global_assignment -name VERILOG_FILE RORO.v
-set_global_assignment -name VERILOG_FILE ROM.v
-set_global_assignment -name VERILOG_FILE MIPSALU.v
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_SIMULATION_TOOL "Questa Altera FPGA (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
-set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
-set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
-set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH RORO_Supreme_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME RORO_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id RORO_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME RORO_tb -section_id RORO_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME RORO_Supreme_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id RORO_Supreme_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME RORO_Supreme_tb -section_id RORO_Supreme_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE RORO.v
 set_global_assignment -name VERILOG_FILE ROM_instrucciones.v
+set_global_assignment -name VERILOG_FILE ROM.v
+set_global_assignment -name VERILOG_FILE MIPSALU.v
+set_global_assignment -name VERILOG_FILE RORO_Supreme.v
+set_global_assignment -name VERILOG_FILE RORO_tb.v
+set_global_assignment -name VERILOG_FILE RORO_Supreme_tb.v
+set_global_assignment -name EDA_TEST_BENCH_FILE RORO_tb.v -section_id RORO_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE RORO_Supreme_tb.v -section_id RORO_Supreme_tb
