@@ -28,8 +28,6 @@
 2. [Objetivos](#ii-objetivos)
 3. [Desarrollo de la práctica](#iii-desarrollo-de-la-práctica)
 4. [Conclusiones](#iv-conclusiones)
-5. [Referencias](#v-referencias)
-6. [Anexo: Pendientes del equipo](#anexo-pendientes-del-equipo)
 
 ---
 
@@ -118,17 +116,6 @@ A continuación se documentan las 16 instrucciones diseñadas para el sistema, c
 
 La práctica nos sirvió para entender como funciona un procesador en términos simples con la ROM. Las instrucciones contienen las direcciones donde están guardadas las operaciones y es la combinación de Romina y Roma y la ALU lo que convierte esos 12 bits en resultados. En el testbench se obtuvieron 16/16 resultados lo que confirma que las conexiones entre la ROM de instrucciones, las ROM y la ALU.
 
-## Anexo: Pendientes del equipo
 
-### TODOs
-
-* Editar readme para hacerlo el reporte de actividad como se pide en el PDF.
-* ~Modificar ROM.v para hacerlo modular.~
-* Modificar archivo RORO.v.
-* Modificar MIPSALU.v.
-  Al modificar los archivos debe haber una justificacion para ello segun el PDF.
-* Realizar el modulo de RORO Supreme
-* Codificar testbench para archivos base modificados
-* Realizar el testbench para RORO Supreme
 
 *Nota:* Si utilizas un software diferente a Quartus, puedes ignorar los archivos .qpf y .qsf
