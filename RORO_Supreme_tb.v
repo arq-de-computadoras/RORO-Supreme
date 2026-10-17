@@ -4,6 +4,17 @@
 // instrucciones y compara OP, DD y ZF contra los valores esperados.
 // Los esperados corresponden a los datos actuales de ROMa_init.txt y
 // ROMina_init.txt (misma tabla que usa RORO_tb.v).
+// Carga las tres memorias desde la carpeta P (ruta relativa).
+// Se usa cuando el simulador corre en otra carpeta (por ejemplo
+// simulation/questa en Quartus) y no encuentra los .txt.
+`define CARGAR_MEMORIAS(P) \
+    begin \
+        $readmemb({P, "instrucciones.txt"}, DUT.RomInstr.memoria); \
+        $readmemb({P, "ROMa_init.txt"},     DUT.Roro.Roma.srom);   \
+        $readmemb({P, "ROMina_init.txt"},   DUT.Roro.Romina.srom); \
+        $display("Archivos .txt cargados desde: %s", P); \
+    end
+
 module RORO_Supreme_tb;
 
     // Entrada que controla el testbench
@@ -27,6 +38,7 @@ module RORO_Supreme_tb;
     reg [31:0] dd_esp [0:15];
 
     integer i;
+    integer fd;   // para comprobar si existe un archivo
     integer pass_count;
     integer fail_count;
     reg     zf_esp;
@@ -58,6 +70,36 @@ module RORO_Supreme_tb;
 
         $dumpfile("RORO_Supreme_tb.vcd");
         $dumpvars(0, RORO_Supreme_tb);
+
+        // Ubicacion de los archivos .txt: si el simulador no corre en la
+        // carpeta del proyecto, las ROM no los encuentran y todo sale en x.
+        #1;
+        fd = $fopen("instrucciones.txt", "r");
+        if (fd != 0) begin
+            $fclose(fd);
+            $display("Archivos .txt encontrados en la carpeta de simulacion.");
+        end else begin
+            fd = $fopen("../../instrucciones.txt", "r");
+            if (fd != 0) begin
+                $fclose(fd);
+                `CARGAR_MEMORIAS("../../")
+            end else begin
+                fd = $fopen("../instrucciones.txt", "r");
+                if (fd != 0) begin
+                    $fclose(fd);
+                    `CARGAR_MEMORIAS("../")
+                end else begin
+                    fd = $fopen("../../../instrucciones.txt", "r");
+                    if (fd != 0) begin
+                        $fclose(fd);
+                        `CARGAR_MEMORIAS("../../../")
+                    end else begin
+                        $display("ERROR: no se encontro instrucciones.txt. Copia instrucciones.txt,");
+                        $display("       ROMa_init.txt y ROMina_init.txt a la carpeta donde corre la simulacion.");
+                    end
+                end
+            end
+        end
 
         $display("=== INICIANDO TESTBENCH DE RORO_Supreme: 16 instrucciones ===");
         $display("Dir | OP   R1   R2   | Oper  |   A     B   |     DD (hex)   con signo | ZF | Estado");

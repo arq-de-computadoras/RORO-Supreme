@@ -110,6 +110,32 @@ A continuación se documentan las 16 instrucciones diseñadas para el sistema, c
 * Se creó `ROMa_init.txt` y `ROMina_init.txt` para inicializar los ROMs.
 * Se creó `instrucciones.txt` para el testbench final de RORO Supreme.
 
+### 🧪 Evidencia de simulación
+
+#### RORO_tb en Questa
+
+La simulación de `RORO_tb` se ejecutó en Questa Altera Starter FPGA Edition 2025.2. En el *Transcript* se observa que las dos ROM cargaron sus archivos (`ROMa_init.txt` y `ROMina_init.txt`) y que los 16 casos de prueba reportan **PASS**.
+
+<p align="center">
+  <img src="evidencia/RORO_tb_questa_transcript.png" alt="Simulación de RORO_tb en Questa: Transcript con los 16 casos en PASS y formas de onda" width="100%">
+</p>
+<p align="center"><em>Figura 1. Simulación de RORO_tb en Questa: Transcript con los 16 casos en PASS y ventana de formas de onda.</em></p>
+
+<p align="center">
+  <img src="evidencia/RORO_tb_questa_ondas.png" alt="Formas de onda de RORO_tb: R1, R2, OP, data_a, data_b, DD y ZF" width="100%">
+</p>
+<p align="center"><em>Figura 2. Formas de onda de RORO_tb (0 a 160 ns).</em></p>
+
+Lectura de las formas de onda (cada caso dura 10 ns):
+
+* **R1 y R2** recorren las direcciones `0` a `f` (0 a 15), por lo que se usan las 16 posiciones de ROMa y ROMina.
+* **OP** vale `2` (suma) de 0 a 60 ns, `6` (resta) de 60 a 120 ns y `7` (SLT) de 120 a 160 ns: 6 sumas, 6 restas y 4 comparaciones.
+* **data_a y data_b** muestran los operandos leídos de ROMa y ROMina en cada dirección.
+* **DD** muestra el resultado de la ALU; en las restas negativas aparece `-4` y `-5` (en hexadecimal `FFFFFFFC` y `FFFFFFFB`, complemento a dos).
+* **ZF** solo se activa cuando `DD = 0`: de 60 a 70 ns (resta 0 − 0), de 130 a 140 ns (SLT 5 < 5, falso) y de 150 a 160 ns (SLT 6 < 1, falso).
+
+<!-- Pendiente: agregar captura de la simulación de RORO_Supreme_tb -->
+
 ---
 
 ## IV. Conclusiones
