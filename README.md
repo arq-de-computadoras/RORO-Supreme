@@ -142,6 +142,3 @@ Lectura de las formas de onda (cada caso dura 10 ns):
 
 La práctica nos sirvió para entender como funciona un procesador en términos simples con la ROM. Las instrucciones contienen las direcciones donde están guardadas las operaciones y es la combinación de Romina y Roma y la ALU lo que convierte esos 12 bits en resultados. En el testbench se obtuvieron 16/16 resultados lo que confirma que las conexiones entre la ROM de instrucciones, las ROM y la ALU.
 
-
-
-*Nota:* Si utilizas un software diferente a Quartus, puedes ignorar los archivos .qpf y .qsf
